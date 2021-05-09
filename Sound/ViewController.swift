@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
+    
+    
+    let drumSoundPlayer = try! AVAudioPlayer(data:NSDataAsset(name:"drumSound")!.data)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,5 +19,9 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func tapDrumButton(){
+        drumSoundPlayer.currentTime = 0
+        drumSoundPlayer.play()
+    }
 }
 
